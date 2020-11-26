@@ -1,0 +1,5 @@
+venv/
+.idea/
+__pychache__/
+app/Data/db/db_settings
+_documents/
