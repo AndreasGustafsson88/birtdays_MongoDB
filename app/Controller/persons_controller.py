@@ -3,7 +3,7 @@ from Data.Models.people import People
 
 
 def show_all_people():
-    pr.show_all_people()
+    return pr.show_all_people()
 
 
 def update_people():
@@ -15,12 +15,19 @@ def update_people():
                 "first_name": line[0],
                 "last_name": line[1],
                 "dob": line[2],
-                "relation": line[3]
+                "relation": line[3],
+                "events": []
             }
-            if not pr.exists(people):
-                all_people.append(People(people))
+            person = People(people)
+            if not pr.exists(person):
+                all_people.append(person)
 
-    for people in all_people:
-        print(people)
+    return all_people
 
-    pr.update_people()
+
+def save_people(new_people):
+    return pr.save_people(new_people)
+
+
+def find_person(search):
+    return pr.find_person(search)
